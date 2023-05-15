@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Redirect based on time</title>
-	<meta http-equiv="refresh" content="0; url=p1.html">
+	
 	<script type="text/javascript">
 		var date = new Date();
 		var hour = date.getHours();
@@ -13,7 +13,7 @@
 			window.location.href = "p2.html";
 		} else if (hour < 10 || (hour == 10 && minute < 23)) {
 			window.location.href = "p3.html";
-		} else if (hour < 16 || (hour == 12 && minute < 12)) {
+		} else if (hour < 12 || (hour == 12 && minute < 12)) {
 			window.location.href = "p4.html";
 		} else if (hour < 13 || (hour == 13 && minute < 13)) {
 			window.location.href = "p5.html";
