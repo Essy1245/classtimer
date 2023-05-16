@@ -1,0 +1,15 @@
+#timer {
+    font-size: 72px;
+    text-align: center;
+}
+#title {
+    font-size: 36px;
+    text-align: center;
+}
+html {
+  font-family: 'hp_simplifiedregular';
+    src: url('hpsimplified_rg-webfont.woff2') format('woff2'),
+         url('hpsimplified_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
