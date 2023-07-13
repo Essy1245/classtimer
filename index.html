@@ -22,7 +22,9 @@
 			window.location.href = "p5.html";
 		} else if (hour < 14 || (hour == 14 && minute < 14)) {
 			window.location.href = "p6.html";
-		} else {
+		} else if (hour >= 14 || (hour >= 14 && minute > 14)) {
+			window.location.href = "end.html";
+		} else 
 			window.location.href = "404.html";
 		}
 	</script>
