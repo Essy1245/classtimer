@@ -47,12 +47,7 @@
             s = (s < 10) ? "0" + s : s;
 
             document.getElementById("timer").textContent = h + ":" + m + ":" + s;
-            
-            setTimeout(countdown, 1000);
-            setTimeout(rollover, 1000);
-        }
-	function rollover() {
-		if (hour > 14 || (hour == 14 && minute > 15)) {
+	    if (hour > 14 || (hour == 14 && minute > 15)) {
 			// window.location.href = "index.html";
 			// do nothing if After 2:14PM
 		} else if (hour < 7 || (hour == 7 && minute < 25)) {
@@ -64,8 +59,12 @@
 		} else if (hour > 7 || (hour == 7 && minute > 25)) { 
 			// IF AFTER 7:25AM, go to index.html.
 			window.location.href = "index.html";
-		}		
-	}
+		}
+            
+            setTimeout(countdown, 1000);
+
+        }
+	
         countdown();
     </script>
 </body>
