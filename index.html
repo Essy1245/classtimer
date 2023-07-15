@@ -3,6 +3,11 @@
 <head>
 	<title>Redirect based on time</title>
 	<script type="text/javascript">
+		 var date = new Date();
+   		 var dateNum = date.getDay();
+    		if (dateNum == 3 || dateNum == 4 ) {
+   		   window.location.href = "https://time.hamiltonhigh.tech/block/index.html"; 
+   		}
 		var date = new Date();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
