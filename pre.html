@@ -27,6 +27,7 @@
 	}    
 	    
         function countdown() {
+
             var now = new Date();
             var eventHour = 7;
             var eventMinute = 25;
@@ -62,8 +63,9 @@
             s = (s < 10) ? "0" + s : s;
 
             document.getElementById("timer").textContent = h + ":" + m + ":" + s;
-		rollover();
+            
             setTimeout(countdown, 1000);
+            setTimeout(rollover, 1000);
         }
 	
         countdown();
