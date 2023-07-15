@@ -10,6 +10,22 @@
     <p id="timer"></p>
 
     <script>
+	function rollover() {
+		if (hour > 14 || (hour == 14 && minute > 15)) {
+			// window.location.href = "index.html";
+			// do nothing if After 2:14PM
+		} else if (hour < 7 || (hour == 7 && minute < 25)) {
+			// window.location.href = "index.html";
+			// do nothing if Before 7:25AM
+		} else if (hour < 14 || (hour == 14 && minute < 15)) {
+			// IF BEFORE 2PM or 2:15PM, go to index.html
+			window.location.href = "index.html";
+		} else if (hour > 7 || (hour == 7 && minute > 25)) { 
+			// IF AFTER 7:25AM, go to index.html.
+			window.location.href = "index.html";
+		}		
+	}    
+	    
         function countdown() {
             var now = new Date();
             var eventHour = 7;
@@ -24,27 +40,15 @@
             var eventTime = eventDate.getTime();
 
             var remTime = eventTime - currentTime;
-	          if (remTime <= 0 || remTime >= 25200000) {
-     	      // window.location.href = "index.html";
-	          return;
-	          }
+	          // if (remTime <= 0 || remTime >= 25200000) {
+     	     	  // window.location.href = "index.html";
+	          // return;
+	          // }
 		var date = new Date();
    		var dateNum = date.getDay();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		if (hour > 14 || (hour == 14 && minute > 15)) {
-			// window.location.href = "index.html";
-			// do nothing if After 2:14PM
-		} else if (hour < 7 || (hour == 7 && minute < 25)) {
-			// window.location.href = "index.html";
-			// do nothing if Before 7:25AM
-		} else if (hour < 14 || (hour == 14 && minute < 15)) {
-			// IF BEFORE 2PM or 2:15PM, go to index.html
-			window.location.href = "index.html";
-		} else if (hour > 7 || (hour == 7 && minute > 25)) { 
-			// IF AFTER 7:25AM, go to index.html.
-		}
-		
+				
             var s = Math.floor(remTime / 1000);
             var m = Math.floor(s / 60);
             var h = Math.floor(m / 60);
@@ -58,10 +62,10 @@
             s = (s < 10) ? "0" + s : s;
 
             document.getElementById("timer").textContent = h + ":" + m + ":" + s;
-
+		rollover();
             setTimeout(countdown, 1000);
         }
-
+	
         countdown();
     </script>
 </body>
