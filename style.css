@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 #timer {
-    font-size: 72px;   
+    font-size: 108px;   
 }
 #title {
-    font-size: 36px;
+    font-size: 40px;
 }
 html {
-  font-family: 'hp_simplifiedregular';
-    src: url('hpsimplified_rg-webfont.woff2') format('woff2'),
-         url('hpsimplified_rg-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     text-align: center;
+    font-family: 'Lexend', sans-serif;
+}
+#container {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
