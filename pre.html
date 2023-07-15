@@ -9,23 +9,7 @@
     <h2>The day has ended, or the next one did not start yet.</h2>
     <p id="timer"></p>
 
-    <script>
-	function rollover() {
-		if (hour > 14 || (hour == 14 && minute > 15)) {
-			// window.location.href = "index.html";
-			// do nothing if After 2:14PM
-		} else if (hour < 7 || (hour == 7 && minute < 25)) {
-			// window.location.href = "index.html";
-			// do nothing if Before 7:25AM
-		} else if (hour < 14 || (hour == 14 && minute < 15)) {
-			// IF BEFORE 2PM or 2:15PM, go to index.html
-			window.location.href = "index.html";
-		} else if (hour > 7 || (hour == 7 && minute > 25)) { 
-			// IF AFTER 7:25AM, go to index.html.
-			window.location.href = "index.html";
-		}		
-	}    
-	    
+    <script> 
         function countdown() {
 
             var now = new Date();
@@ -67,7 +51,21 @@
             setTimeout(countdown, 1000);
             setTimeout(rollover, 1000);
         }
-	
+	function rollover() {
+		if (hour > 14 || (hour == 14 && minute > 15)) {
+			// window.location.href = "index.html";
+			// do nothing if After 2:14PM
+		} else if (hour < 7 || (hour == 7 && minute < 25)) {
+			// window.location.href = "index.html";
+			// do nothing if Before 7:25AM
+		} else if (hour < 14 || (hour == 14 && minute < 15)) {
+			// IF BEFORE 2PM or 2:15PM, go to index.html
+			window.location.href = "index.html";
+		} else if (hour > 7 || (hour == 7 && minute > 25)) { 
+			// IF AFTER 7:25AM, go to index.html.
+			window.location.href = "index.html";
+		}		
+	}
         countdown();
     </script>
 </body>
