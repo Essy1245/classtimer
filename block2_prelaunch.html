@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remaining Class time</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body id="container">
+    <h1 id="title">Time left until A/B/C launch:</h1>
+    <p id="timer"></p>
+
+    <script>
+        function countdown() {
+            var now = new Date();
+            // edit variables here, currently set as C launch start time
+            var eventHour = 11;
+            var eventMinute = 47;
+            var eventDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), eventHour, eventMinute, 0);
+
+            if (now > eventDate) {
+                eventDate.setDate(eventDate.getDate() + 1);
+            }
+
+            var currentTime = now.getTime();
+            var eventTime = eventDate.getTime();
+
+            var remTime = eventTime - currentTime;
+	    if (remTime <= 0 || remTime >= 72000000) {
+     	    window.location.href = "index.html";
+	    return;
+	    }
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            document.getElementById("timer").textContent = h + ":" + m + ":" + s;
+
+            setTimeout(countdown, 1000);
+        }
+
+        countdown();
+    </script>
+</body>
+</html>
