@@ -19,11 +19,14 @@
              } else if (hour < 11 || (hour == 11 && minute < 47)) {  //Launch starting time goes here, currently unknown. Assumed as C lunch. 
                window.location.href = "block2_prelaunch.html";
              } else if (hour < 12 || (hour == 12 && minute < 18)) {    //launch end time goes here, currently assumed as C lunch.
-                // action
+         
                 window.location.herf = "launch_a_b_or_c.html";
              } else if (hour < 14 || (hour == 14 && minute < 14)) {
-                // action
+         
                 window.location.href = "block3.html";
+             } else if (hour >2 || (hour == 2 && minute > 14)) {
+                window.location.href = "https://time.hamiltonhigh.tech/pre.html";
+             
              } else { 
                 window.location.href = "https://time.hamiltonhigh.tech/404.html"
                 // go 404 if no condition match
