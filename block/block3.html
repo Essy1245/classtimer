@@ -7,7 +7,23 @@
 <body id="container">
     <h1 id="title">Time left in Block 3:</h1>
     <p id="timer"></p>
-
+<script>
+      // Request the screen wake lock when the page loads
+      window.addEventListener('load', async () => {
+        try {
+          // Check if the Screen Wake Lock API is supported
+          if ('wakeLock' in navigator) {
+            // Request the screen wake lock
+            const wakeLock = await navigator.wakeLock.request('screen');
+            console.log('Screen wake lock is active');
+          } else {
+            console.error('Screen Wake Lock API is not supported');
+          }
+        } catch (error) {
+          console.error('Failed to request screen wake lock:', error);
+        }
+      });
+    </script>
     <script>
         function countdown() {
             var now = new Date();
