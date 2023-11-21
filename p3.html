@@ -4,9 +4,18 @@
     <title>Remaining Class time</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body id="container">
+<body id="container" onclick="toggleFullscreen()">
     <h1 id="title">Time left in P3:</h1>
     <p id="timer"></p>
+	<script>
+	function toggleFullscreen() {
+		if (document.fullscreenElement) {
+			document.exitFullscreen();
+		} else {
+			document.documentElement.requestFullscreen();
+		}
+	}
+</script>
 <script>
       // Request the screen wake lock when the page loads
       window.addEventListener('load', async () => {
