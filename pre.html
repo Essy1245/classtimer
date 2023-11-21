@@ -4,10 +4,19 @@
     <title>Day not started yet.</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body id="container">
+<body id="container" onclick="toggleFullscreen()">
     <h1 id="title">Time until next class:</h1>
     <h2>The day has ended, or the next one did not start yet.</h2>
     <p id="timer"></p>
+	<script>
+	function toggleFullscreen() {
+		if (document.fullscreenElement) {
+			document.exitFullscreen();
+		} else {
+			document.documentElement.requestFullscreen();
+		}
+	}
+</script>
 <script>
       // Request the screen wake lock when the page loads
       window.addEventListener('load', async () => {
