@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remaining Lunch Time</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Time Left in Lunch Periods:</h1>
+
+  <div class="timer-container">
+    <h2>A Lunch</h2>
+    <p id="timer-a"></p>
+  </div>
+
+  <div class="timer-container">
+    <h2>B Lunch</h2>
+    <p id="timer-b"></p>
+  </div>
+
+  <div class="timer-container">
+    <h2>C Lunch</h2>
+    <p id="timer-c"></p>
+  </div>
+
+  <script>
+    // Wake lock request (same as before)
+    function countdown(lunchLetter, eventHour, eventMinute) {
+      var now = new Date();
+      var eventDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), eventHour, eventMinute, 0);
+
+      if (now > eventDate) {
+        eventDate.setDate(eventDate.getDate() + 1);
+      }
+
+      var currentTime = now.getTime();
+      var eventTime = eventDate.getTime();
+
+      var remTime = eventTime - currentTime;
+      if (remTime <= 0 || remTime >= 2160000) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      var s = Math.floor(remTime / 1000);
+      var m = Math.floor(s / 60);
+      var h = Math.floor(m / 60);
+
+      h %= 24;
+      m %= 60;
+      s %= 60;
+
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
+
+      document.getElementById("timer-" + lunchLetter).textContent = h + ":" + m + ":" + s;
+
+      setTimeout(function() {
+        countdown(lunchLetter, eventHour, eventMinute);
+      }, 1000);
+    }
+
+    // Start countdowns for each lunch period
+    countdown("a", 11, 04);
+    countdown("b", 11, 40);
+    countdown("c", 12, 12);
+  </script>
+</body>
+</html>
