@@ -21,9 +21,18 @@
     <h2>C Lunch</h2>
     <p id="timer-c"></p>
   </div>
-
+	
   <script>
     // Wake lock request (same as before)
+	
+	var date = new Date();
+   	var dateNum = date.getDay();
+	var hour = date.getHours();
+	var minute = date.getMinutes();
+	
+	
+	
+	
     function countdown(lunchLetter, eventHour, eventMinute) {
       var now = new Date();
       var eventDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), eventHour, eventMinute, 0);
@@ -36,11 +45,8 @@
       var eventTime = eventDate.getTime();
 
       var remTime = eventTime - currentTime;
-      if (remTime <= 0 || remTime >= 2160000) {
-        window.location.href = "index.html";
-        return;
-      }
-
+     
+	
       var s = Math.floor(remTime / 1000);
       var m = Math.floor(s / 60);
       var h = Math.floor(m / 60);
@@ -54,6 +60,13 @@
       s = (s < 10) ? "0" + s : s;
 
       document.getElementById("timer-" + lunchLetter).textContent = h + ":" + m + ":" + s;
+	  
+	  
+	  if (hour < 10 || (hour == 10 && minute < 33)) {
+      	window.location.href = "index.html"; //before any lunch 
+    } else if (hour > 12 || (hour == 12 && minute > 12)) {
+		window.location.href = "index.html"; //after lunch 
+	}
 
       setTimeout(function() {
         countdown(lunchLetter, eventHour, eventMinute);
